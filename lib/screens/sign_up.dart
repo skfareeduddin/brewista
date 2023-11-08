@@ -58,6 +58,8 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 16.0),
               GradientButton(
+                width: 360.0,
+                height: 56.0,
                 text: const Text(
                   'Submit',
                   style: TextStyle(
