@@ -134,19 +134,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               color:
                                   Colors.black.withOpacity(0.6000000238418579),
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
-                              height: 0,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 25.0),
                         const Text(
                           '20% off!',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
-                            fontSize: 24,
+                            fontSize: 24.0,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                             height: 0.06,
@@ -162,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'Invite Now',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 14,
+                              fontSize: 14.0,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w700,
                             ),
@@ -184,14 +183,195 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Today's Special",
                     style: TextStyle(
                       color: Color(0xFF2F1B00),
-                      fontSize: 20,
+                      fontSize: 20.0,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 16.0),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 160.0,
+                          height: 108.0,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(6.0),
+                            ),
+                            color: Color(0xFFE5E5E5),
+                          ),
+                          child: Image.asset('assets/black-coffee.png'),
+                        ),
+                        const SizedBox(height: 8.0),
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Black Coffee',
+                            style: TextStyle(
+                              color: Color(0xFF2F1B00),
+                              fontSize: 18,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8.0),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '\$2.08',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18.0,
+                                  color: Colors.black
+                                      .withOpacity(0.3700000047683716),
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: ' \$1.79',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF2F1B00),
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24.0),
+                        Container(
+                          width: 159,
+                          height: 48,
+                          padding: const EdgeInsets.all(8),
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFDE1B9),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Add',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF634A04),
+                                  fontSize: 14,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w700,
+                                  height: 0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 160.0,
+                          height: 108.0,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(6.0),
+                            ),
+                            color: Color(0xFFE5E5E5),
+                          ),
+                          child: Image.asset('assets/black-coffee.png'),
+                        ),
+                        const SizedBox(height: 8.0),
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Espresso',
+                            style: TextStyle(
+                              color: Color(0xFF2F1B00),
+                              fontSize: 18,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8.0),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '\$2.08',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18.0,
+                                  color: Colors.black
+                                      .withOpacity(0.3700000047683716),
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: ' \$1.79',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF2F1B00),
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24.0),
+                        Container(
+                          width: 159,
+                          height: 48,
+                          padding: const EdgeInsets.all(8),
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFDE1B9),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Add',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF634A04),
+                                  fontSize: 14,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w700,
+                                  height: 0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
