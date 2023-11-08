@@ -1,6 +1,6 @@
+import 'package:brewista/screens/home.dart';
 import 'package:brewista/screens/sign_up.dart';
 import 'package:flutter/material.dart';
-import '';
 
 void main() {
   runApp(const Brewista());
@@ -12,9 +12,10 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: SignUp.id,
+      initialRoute: HomeScreen.id,
       routes: {
         SignUp.id: (context) => const SignUp(),
+        HomeScreen.id: (context) => const HomeScreen(),
       },
     );
   }
