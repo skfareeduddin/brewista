@@ -1,11 +1,11 @@
 import 'package:brewista/models/gradient_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static const id = "home";
+  static const id = 'home';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -15,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF4F4F4),
       body: SafeArea(
         child: Padding(
@@ -253,32 +254,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 24.0),
                         Container(
-                          width: 159,
-                          height: 48,
-                          padding: const EdgeInsets.all(8),
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFFDE1B9),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6),
-                            ),
+                          width: 159.0,
+                          height: 48.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6.0),
+                            color: Colors.white,
                           ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Add',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFF634A04),
-                                  fontSize: 14,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0,
+                          child: Material(
+                            color: const Color(0xFFFDE1B9),
+                            borderRadius: BorderRadius.circular(6.0),
+                            child: InkWell(
+                              onTap: () {},
+                              child: const Center(
+                                child: Text(
+                                  'Add',
+                                  style: TextStyle(
+                                    color: Color(0xFF634A04),
+                                    fontSize: 14,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ],
@@ -340,34 +338,31 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 24.0),
                         Container(
-                          width: 159,
-                          height: 48,
-                          padding: const EdgeInsets.all(8),
-                          decoration: ShapeDecoration(
-                            color: const Color(0xFFFDE1B9),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6),
-                            ),
+                          width: 159.0,
+                          height: 48.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6.0),
+                            color: Colors.white,
                           ),
-                          child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Add',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFF634A04),
-                                  fontSize: 14,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0,
+                          child: Material(
+                            color: const Color(0xFFFDE1B9),
+                            borderRadius: BorderRadius.circular(6.0),
+                            child: InkWell(
+                              onTap: () {},
+                              child: const Center(
+                                child: Text(
+                                  'Add',
+                                  style: TextStyle(
+                                    color: Color(0xFF634A04),
+                                    fontSize: 14,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
-                            ],
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
@@ -377,34 +372,41 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/home_icon.svg'),
-            label: 'Home',
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(32.0)),
+          child: BottomNavigationBar(
+            elevation: 50.0,
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/home_icon.svg'),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/cart_icon.svg'),
+                label: 'Cart',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset('assets/profile_icon.svg'),
+                label: 'Profile',
+              ),
+            ],
+            selectedLabelStyle: const TextStyle(
+              color: Color(0xFFC97200),
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+            ),
+            unselectedLabelStyle: const TextStyle(
+              color: Color(0xFFC97200),
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+            ),
+            selectedItemColor: const Color(0xFFC97200),
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/cart_icon.svg'),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/profile_icon.svg'),
-            label: 'Profile',
-          ),
-        ],
-        selectedLabelStyle: const TextStyle(
-          color: Color(0xFFC97200),
-          fontSize: 16,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
         ),
-        unselectedLabelStyle: const TextStyle(
-          color: Color(0xFFC97200),
-          fontSize: 16,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-        ),
-        selectedItemColor: const Color(0xFFC97200),
       ),
     );
   }

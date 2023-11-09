@@ -16,6 +16,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -55,6 +56,7 @@ class _SignUpState extends State<SignUp> {
                     height: 0,
                   ),
                 ),
+                keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 16.0),
               GradientButton(
