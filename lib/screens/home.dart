@@ -1,5 +1,6 @@
 import 'package:brewista/models/gradient_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -375,6 +376,35 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/home_icon.svg'),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/cart_icon.svg'),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/profile_icon.svg'),
+            label: 'Profile',
+          ),
+        ],
+        selectedLabelStyle: const TextStyle(
+          color: Color(0xFFC97200),
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          color: Color(0xFFC97200),
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+        ),
+        selectedItemColor: const Color(0xFFC97200),
       ),
     );
   }
