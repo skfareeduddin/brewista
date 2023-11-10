@@ -1,6 +1,5 @@
 import 'package:brewista/models/gradient_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int myIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -378,20 +379,34 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: const BorderRadius.all(Radius.circular(32.0)),
           child: BottomNavigationBar(
             elevation: 50.0,
-            items: [
+            onTap: (index) => {
+              setState(() {
+                myIndex = index;
+              }),
+            },
+            currentIndex: myIndex,
+            items: const [
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/home_icon.svg'),
+                // icon: SvgPicture.asset('assets/home_icon.svg'),
+                icon: Icon(Icons.home_filled),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/cart_icon.svg'),
+                // icon: SvgPicture.asset('assets/cart_icon.svg'),
+                icon: Icon(Icons.shopping_cart_outlined),
                 label: 'Cart',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/profile_icon.svg'),
+                // icon: SvgPicture.asset('assets/profile_icon.svg'),
+                icon: Icon(
+                  Icons.person_2_outlined,
+                ),
                 label: 'Profile',
               ),
             ],
+            selectedIconTheme: const IconThemeData(
+              color: Color(0xFFC97200),
+            ),
             selectedLabelStyle: const TextStyle(
               color: Color(0xFFC97200),
               fontSize: 16,
