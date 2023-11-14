@@ -13,7 +13,7 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: ProfileScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         SignUp.id: (context) => const SignUp(),
         HomeScreen.id: (context) => const HomeScreen(),
