@@ -1,6 +1,7 @@
 import 'package:brewista/models/gradient_button.dart';
-import 'package:brewista/screens/select_order.dart';
 import 'package:flutter/material.dart';
+
+import '../models/item_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,9 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF4F4F4),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
             child: Column(
               children: [
                 Align(
@@ -202,178 +204,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 160.0,
-                                height: 108.0,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6.0),
-                                  ),
-                                  color: Color(0xFFE5E5E5),
-                                ),
-                                child: Image.asset('assets/black-coffee.png'),
-                              ),
-                              const SizedBox(height: 8.0),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Black Coffee',
-                                  style: TextStyle(
-                                    color: Color(0xFF2F1B00),
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8.0),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '\$2.08',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18.0,
-                                        color: Colors.black
-                                            .withOpacity(0.3700000047683716),
-                                        decoration: TextDecoration.lineThrough,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' \$1.79',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF2F1B00),
-                                        fontSize: 18.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 24.0),
-                              Container(
-                                width: 159.0,
-                                height: 48.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  color: Colors.white,
-                                ),
-                                child: Material(
-                                  color: const Color(0xFFFDE1B9),
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                          context: context,
-                                          builder: (context) =>
-                                              const SelectOrderScreen());
-                                    },
-                                    child: const Center(
-                                      child: Text(
-                                        'Add',
-                                        style: TextStyle(
-                                          color: Color(0xFF634A04),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          ItemCard(
+                            itemImage: Image.asset('assets/black-coffee.png'),
+                            itemName: 'Black Coffee',
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 160.0,
-                                height: 108.0,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6.0),
-                                  ),
-                                  color: Color(0xFFE5E5E5),
-                                ),
-                                child: Image.asset('assets/espresso.png'),
-                              ),
-                              const SizedBox(height: 8.0),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Espresso',
-                                  style: TextStyle(
-                                    color: Color(0xFF2F1B00),
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8.0),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '\$2.08',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18.0,
-                                        color: Colors.black
-                                            .withOpacity(0.3700000047683716),
-                                        decoration: TextDecoration.lineThrough,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' \$1.79',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF2F1B00),
-                                        fontSize: 18.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 24.0),
-                              Container(
-                                width: 159.0,
-                                height: 48.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  color: Colors.white,
-                                ),
-                                child: Material(
-                                  color: const Color(0xFFFDE1B9),
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: const Center(
-                                      child: Text(
-                                        'Add',
-                                        style: TextStyle(
-                                          color: Color(0xFF634A04),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          ItemCard(
+                            itemImage: Image.asset('assets/espresso.png'),
+                            itemName: 'Espresso',
                           ),
                         ],
                       ),
@@ -381,173 +218,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 160.0,
-                                height: 108.0,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6.0),
-                                  ),
-                                  color: Color(0xFFE5E5E5),
-                                ),
-                                child: Image.asset('assets/black-coffee.png'),
-                              ),
-                              const SizedBox(height: 8.0),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Black Coffee',
-                                  style: TextStyle(
-                                    color: Color(0xFF2F1B00),
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8.0),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '\$2.08',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18.0,
-                                        color: Colors.black
-                                            .withOpacity(0.3700000047683716),
-                                        decoration: TextDecoration.lineThrough,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' \$1.79',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF2F1B00),
-                                        fontSize: 18.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 24.0),
-                              Container(
-                                width: 159.0,
-                                height: 48.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  color: Colors.white,
-                                ),
-                                child: Material(
-                                  color: const Color(0xFFFDE1B9),
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: const Center(
-                                      child: Text(
-                                        'Add',
-                                        style: TextStyle(
-                                          color: Color(0xFF634A04),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          ItemCard(
+                            itemImage: Image.asset('assets/black-coffee.png'),
+                            itemName: 'Black Coffee',
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 160.0,
-                                height: 108.0,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(6.0),
-                                  ),
-                                  color: Color(0xFFE5E5E5),
-                                ),
-                                child: Image.asset('assets/espresso.png'),
-                              ),
-                              const SizedBox(height: 8.0),
-                              const Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Espresso',
-                                  style: TextStyle(
-                                    color: Color(0xFF2F1B00),
-                                    fontSize: 18,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8.0),
-                              Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '\$2.08',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18.0,
-                                        color: Colors.black
-                                            .withOpacity(0.3700000047683716),
-                                        decoration: TextDecoration.lineThrough,
-                                      ),
-                                    ),
-                                    const TextSpan(
-                                      text: ' \$1.79',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF2F1B00),
-                                        fontSize: 18.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 24.0),
-                              Container(
-                                width: 159.0,
-                                height: 48.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  color: Colors.white,
-                                ),
-                                child: Material(
-                                  color: const Color(0xFFFDE1B9),
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: const Center(
-                                      child: Text(
-                                        'Add',
-                                        style: TextStyle(
-                                          color: Color(0xFF634A04),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          ItemCard(
+                            itemImage: Image.asset('assets/espresso.png'),
+                            itemName: 'Espresso',
                           ),
                         ],
                       ),
