@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:brewista/models/order_selector.dart';
+import 'package:brewista/models/selector_divider.dart';
 
 class SelectOrderScreen extends StatelessWidget {
   const SelectOrderScreen({super.key});
@@ -13,7 +16,7 @@ class SelectOrderScreen extends StatelessWidget {
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
-          color: Colors.white,
+          color: Color(0xFFF4F4F4),
         ),
         child: Padding(
           padding: const EdgeInsets.all(40.0),
@@ -24,7 +27,7 @@ class SelectOrderScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: 160.0,
+                    width: 136.0,
                     height: 108.0,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
@@ -34,7 +37,7 @@ class SelectOrderScreen extends StatelessWidget {
                     ),
                     child: Image.asset('assets/black-coffee.png'),
                   ),
-                  const SizedBox(width: 8.0),
+                  const SizedBox(width: 16.0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -43,7 +46,7 @@ class SelectOrderScreen extends StatelessWidget {
                         'Black Coffee',
                         style: TextStyle(
                           color: Color(0xFF2F1B00),
-                          fontSize: 18,
+                          fontSize: 28.0,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           height: 0,
@@ -56,7 +59,7 @@ class SelectOrderScreen extends StatelessWidget {
                               text: '\$2.08',
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18.0,
+                                fontSize: 26.0,
                                 color: Colors.black
                                     .withOpacity(0.3700000047683716),
                                 decoration: TextDecoration.lineThrough,
@@ -68,13 +71,131 @@ class SelectOrderScreen extends StatelessWidget {
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF2F1B00),
-                                fontSize: 18.0,
+                                fontSize: 26.0,
                               ),
                             ),
                           ],
                         ),
                       ),
                     ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 32.0),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Cup Size',
+                  style: TextStyle(
+                    color: Color(0xFF2F1B00),
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              const Row(
+                children: [
+                  OrderSelector(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      bottomLeft: Radius.circular(15.0),
+                    ),
+                    child: Text(
+                      '200ml',
+                      style: TextStyle(
+                        color: Color(0xE52F1B00),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: BorderRadius.zero,
+                    child: Text(
+                      '300ml',
+                      style: TextStyle(
+                        color: Color(0xE52F1B00),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: BorderRadius.zero,
+                    child: Text(
+                      '400ml',
+                      style: TextStyle(
+                        color: Color(0xE52F1B00),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0),
+                    ),
+                    child: Text(
+                      '500ml',
+                      style: TextStyle(
+                        color: Color(0xE52F1B00),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Cup Type',
+                  style: TextStyle(
+                    color: Color(0xFF2F1B00),
+                    fontSize: 16,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              Row(
+                children: [
+                  OrderSelector(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      bottomLeft: Radius.circular(15.0),
+                    ),
+                    child: SvgPicture.asset('assets/cup_1.svg'),
+                  ),
+                  const SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: BorderRadius.zero,
+                    child: SvgPicture.asset('assets/cup_2.svg'),
+                  ),
+                  const SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: BorderRadius.zero,
+                    child: SvgPicture.asset('assets/cup_3.svg'),
+                  ),
+                  const SelectorDivider(),
+                  OrderSelector(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0),
+                    ),
+                    child: SvgPicture.asset('assets/cup_4.svg'),
                   ),
                 ],
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/select_order.dart';
+
 class ItemCard extends StatelessWidget {
   final Image itemImage;
   final String itemName;
@@ -78,7 +80,11 @@ class ItemCard extends StatelessWidget {
             color: const Color(0xFFFDE1B9),
             borderRadius: BorderRadius.circular(6.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) => const SelectOrderScreen());
+              },
               child: const Center(
                 child: Text(
                   'Add',
