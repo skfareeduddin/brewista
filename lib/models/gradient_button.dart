@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
 class GradientButton extends StatelessWidget {
-  final Text text;
+  final Text child;
   final VoidCallback onPressed;
   final Color startingColor;
   final Color endingColor;
   final double width;
   final double height;
+  final BorderRadius borderRadius;
 
   const GradientButton({
     super.key,
-    required this.text,
+    required this.child,
     required this.onPressed,
     required this.startingColor,
     required this.endingColor,
     required this.width,
     required this.height,
+    required this.borderRadius,
   });
 
   @override
@@ -24,7 +26,7 @@ class GradientButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: borderRadius,
         gradient: LinearGradient(
           colors: [
             startingColor,
@@ -37,7 +39,7 @@ class GradientButton extends StatelessWidget {
         child: InkWell(
           onTap: onPressed,
           child: Center(
-            child: text,
+            child: child,
           ),
         ),
       ),

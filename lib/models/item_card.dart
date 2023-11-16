@@ -82,8 +82,10 @@ class ItemCard extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 showModalBottomSheet(
-                    context: context,
-                    builder: (context) => const SelectOrderScreen());
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) => const SelectOrderScreen(),
+                );
               },
               child: const Center(
                 child: Text(

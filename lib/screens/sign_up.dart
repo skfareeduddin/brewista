@@ -62,7 +62,11 @@ class _SignUpState extends State<SignUp> {
               GradientButton(
                 width: 360.0,
                 height: 56.0,
-                text: const Text(
+                borderRadius:  BorderRadius.circular(30.0),
+                onPressed: () {},
+                startingColor: const Color(0xFF8F5101),
+                endingColor: const Color(0xFFDA9235),
+                child: const Text(
                   'Submit',
                   style: TextStyle(
                     color: Colors.white,
@@ -71,9 +75,6 @@ class _SignUpState extends State<SignUp> {
                     fontSize: 14.0,
                   ),
                 ),
-                onPressed: () {},
-                startingColor: const Color(0xFF8F5101),
-                endingColor: const Color(0xFFDA9235),
               ),
               const SizedBox(height: 20.0),
               const Text.rich(

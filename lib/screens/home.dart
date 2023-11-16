@@ -164,7 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           GradientButton(
                             width: 124.0,
                             height: 48.0,
-                            text: const Text(
+                            borderRadius: BorderRadius.circular(30.0),
+                            onPressed: () {},
+                            startingColor: const Color(0xFF8F5101),
+                            endingColor: const Color(0xFFDA9235),
+                            child: const Text(
                               'Invite Now',
                               style: TextStyle(
                                 color: Colors.white,
@@ -173,9 +177,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
-                            onPressed: () {},
-                            startingColor: const Color(0xFF8F5101),
-                            endingColor: const Color(0xFFDA9235),
                           ),
                         ],
                       ),
