@@ -1,3 +1,4 @@
+import 'package:brewista/screens/cart.dart';
 import 'package:brewista/screens/home.dart';
 import 'package:brewista/screens/profile.dart';
 import 'package:brewista/screens/sign_up.dart';
@@ -13,11 +14,12 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.id,
+      initialRoute: CartScreen.id,
       routes: {
         SignUp.id: (context) => const SignUp(),
         HomeScreen.id: (context) => const HomeScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
+        CartScreen.id: (context) => const CartScreen(),
       },
     );
   }
