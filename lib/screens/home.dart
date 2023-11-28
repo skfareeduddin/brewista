@@ -1,7 +1,7 @@
-import 'package:brewista/models/gradient_button.dart';
+import 'package:brewista/models/coffee.dart';
 import 'package:flutter/material.dart';
-
-import '../models/item_card.dart';
+import '../components/gradient_button.dart';
+import '../components/item_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +15,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int myIndex = 0;
 
+  // List coffeeMenu = [
+  //   Coffee(
+  //       name: 'Black Coffee',
+  //       originalPrice: '2.08',
+  //       discountPrice: '1.79',
+  //       imagePath: 'assets/black-coffee.png'),
+  //   Coffee(
+  //       name: 'Espresso',
+  //       originalPrice: '2.08',
+  //       discountPrice: '1.79',
+  //       imagePath: 'assets/espresso.png')
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,17 +40,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
-                  child: Container(
-                    child: const Text(
-                      'Good Morning',
-                      style: TextStyle(
-                        color: Color(0xFF2F1B00),
-                        fontSize: 26,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w800,
-                      ),
+                  child: Text(
+                    'Good Morning',
+                    style: TextStyle(
+                      color: Color(0xFF2F1B00),
+                      fontSize: 26,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -159,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           const SizedBox(
-                            height: 8.0,
+                            height: 25.0,
                           ),
                           GradientButton(
                             width: 124.0,
@@ -184,17 +195,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 40.0),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
-                  child: Container(
-                    child: const Text(
-                      "Today's Special",
-                      style: TextStyle(
-                        color: Color(0xFF2F1B00),
-                        fontSize: 20.0,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w900,
-                      ),
+                  child: Text(
+                    "Today's Special",
+                    style: TextStyle(
+                      color: Color(0xFF2F1B00),
+                      fontSize: 20.0,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
@@ -206,12 +215,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ItemCard(
-                            itemImage: Image.asset('assets/black-coffee.png'),
-                            itemName: 'Black Coffee',
+                            coffee: Coffee(
+                                name: 'Black Coffee',
+                                originalPrice: '2.08',
+                                discountPrice: '1.79',
+                                imagePath: 'assets/black-coffee.png',
+                                cupSize: '',
+                                cupType: '',
+                                sugar: 0,
+                                bread: 0,
+                                cream: 0,
+                                quantity: 0),
                           ),
                           ItemCard(
-                            itemImage: Image.asset('assets/espresso.png'),
-                            itemName: 'Espresso',
+                            coffee: Coffee(
+                                name: 'Espresso',
+                                originalPrice: '2.08',
+                                discountPrice: '1.79',
+                                imagePath: 'assets/espresso.png',
+                                cupSize: '',
+                                cupType: '',
+                                sugar: 0,
+                                bread: 0,
+                                cream: 0,
+                                quantity: 0),
                           ),
                         ],
                       ),
@@ -220,12 +247,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ItemCard(
-                            itemImage: Image.asset('assets/black-coffee.png'),
-                            itemName: 'Black Coffee',
+                            coffee: Coffee(
+                                name: 'Black Coffee',
+                                originalPrice: '2.08',
+                                discountPrice: '1.79',
+                                imagePath: 'assets/black-coffee.png',
+                                cupSize: '',
+                                cupType: '',
+                                sugar: 0,
+                                bread: 0,
+                                cream: 0,
+                                quantity: 0),
                           ),
                           ItemCard(
-                            itemImage: Image.asset('assets/espresso.png'),
-                            itemName: 'Espresso',
+                            coffee: Coffee(
+                                name: 'Espresso',
+                                originalPrice: '2.08',
+                                discountPrice: '1.79',
+                                imagePath: 'assets/espresso.png',
+                                cupSize: '',
+                                cupType: '',
+                                sugar: 0,
+                                bread: 0,
+                                cream: 0,
+                                quantity: 0),
                           ),
                         ],
                       ),

@@ -1,16 +1,12 @@
+import 'package:brewista/models/coffee.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/select_order.dart';
 
 class ItemCard extends StatelessWidget {
-  final Image itemImage;
-  final String itemName;
+  final Coffee coffee;
 
-  const ItemCard({
-    super.key,
-    required this.itemImage,
-    required this.itemName,
-  });
+  const ItemCard({super.key, required this.coffee});
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +23,13 @@ class ItemCard extends StatelessWidget {
             ),
             color: Color(0xFFE5E5E5),
           ),
-          child: itemImage,
+          child: Image.asset(coffee.imagePath),
         ),
         const SizedBox(height: 8.0),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            itemName,
+            coffee.name,
             style: const TextStyle(
               color: Color(0xFF2F1B00),
               fontSize: 18,
@@ -48,7 +44,7 @@ class ItemCard extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: '\$2.08',
+                text: '\$${coffee.originalPrice}',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18.0,
@@ -56,9 +52,9 @@ class ItemCard extends StatelessWidget {
                   decoration: TextDecoration.lineThrough,
                 ),
               ),
-              const TextSpan(
-                text: ' \$1.79',
-                style: TextStyle(
+              TextSpan(
+                text: ' \$${coffee.discountPrice}',
+                style: const TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF2F1B00),

@@ -1,8 +1,9 @@
-import 'package:brewista/models/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:brewista/models/order_selector.dart';
-import 'package:brewista/models/selector_divider.dart';
+
+import '../components/gradient_button.dart';
+import '../components/order_selector.dart';
+import '../components/selector_divider.dart';
 
 class SelectOrderScreen extends StatelessWidget {
   const SelectOrderScreen({super.key});
@@ -354,7 +355,7 @@ class SelectOrderScreen extends StatelessWidget {
                       children: [
                         Image.asset('assets/bread.png'),
                         const Text(
-                          'Sugar',
+                          'Bread',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 12,
@@ -364,7 +365,7 @@ class SelectOrderScreen extends StatelessWidget {
                           ),
                         ),
                         const Text(
-                          '(tsp)',
+                          '(pc)',
                           style: TextStyle(
                             color: Color(0xFF686060),
                             fontSize: 12,
@@ -470,7 +471,7 @@ class SelectOrderScreen extends StatelessWidget {
                       children: [
                         Image.asset('assets/cream-spoon.png'),
                         const Text(
-                          'Sugar',
+                          'Cream',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 12,

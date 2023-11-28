@@ -140,7 +140,6 @@ class _CartScreenState extends State<CartScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 // TODO: make the counter and continue from here
-                                child: Row(),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
                                   border: Border.all(
@@ -148,6 +147,8 @@ class _CartScreenState extends State<CartScreen> {
                                       width: 1.0,
                                       style: BorderStyle.solid),
                                 ),
+                                // TODO: make the counter and continue from here
+                                child: Row(),
                               ),
                             ),
                             const SizedBox(width: 12.0),

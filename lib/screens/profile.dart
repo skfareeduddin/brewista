@@ -1,6 +1,7 @@
-import 'package:brewista/models/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../components/rounded_button.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

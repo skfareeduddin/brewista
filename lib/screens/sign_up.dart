@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:brewista/models/gradient_button.dart';
-import 'package:brewista/models/rounded_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../components/gradient_button.dart';
+import '../components/rounded_button.dart';
 
 class SignUp extends StatefulWidget {
   static const String id = 'sign_up';
@@ -62,7 +63,7 @@ class _SignUpState extends State<SignUp> {
               GradientButton(
                 width: 360.0,
                 height: 56.0,
-                borderRadius:  BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(30.0),
                 onPressed: () {},
                 startingColor: const Color(0xFF8F5101),
                 endingColor: const Color(0xFFDA9235),
