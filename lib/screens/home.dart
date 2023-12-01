@@ -1,5 +1,3 @@
-import 'package:brewista/models/coffee.dart';
-import 'package:brewista/screens/select_order.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/gradient_button.dart';
@@ -18,44 +16,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int myIndex = 0;
 
-  void navigateToFoodDetails(int index) {
-    final shop = context.read<Shop>();
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SelectOrderScreen(),
-      ),
-    );
-  }
-
-  final List<Coffee> _coffeeMenu = [
-    Coffee(
-        name: 'Black Coffee',
-        originalPrice: '2.08',
-        discountPrice: '1.79',
-        imagePath: 'assets/black-coffee.png',
-        cupSize: '',
-        cupType: '',
-        sugar: 0,
-        bread: 0,
-        cream: 0,
-        quantity: 0),
-    Coffee(
-        name: 'Espresso',
-        originalPrice: '2.08',
-        discountPrice: '1.79',
-        imagePath: 'assets/espresso.png',
-        cupSize: '',
-        cupType: '',
-        sugar: 0,
-        bread: 0,
-        cream: 0,
-        quantity: 0)
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final shop = context.read<Shop>();
+    final coffeeMenu = shop.coffeeMenu;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF4F4F4),
@@ -240,12 +205,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ItemCard(
-                          coffee: _coffeeMenu[0],
+                          coffee: coffeeMenu[0],
                           onPress: () {},
+                          index: 0,
                         ),
                         ItemCard(
-                          coffee: _coffeeMenu[1],
+                          coffee: coffeeMenu[1],
                           onPress: () {},
+                          index: 1,
                         ),
                       ],
                     ),
@@ -254,12 +221,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ItemCard(
-                          coffee: _coffeeMenu[0],
+                          coffee: coffeeMenu[0],
                           onPress: () {},
+                          index: 0,
                         ),
                         ItemCard(
-                          coffee: _coffeeMenu[1],
+                          coffee: coffeeMenu[1],
                           onPress: () {},
+                          index: 1,
                         ),
                       ],
                     ),
