@@ -1,12 +1,11 @@
 import 'package:brewista/models/coffee.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/select_order.dart';
-
 class ItemCard extends StatelessWidget {
   final Coffee coffee;
+  final VoidCallback onPress;
 
-  const ItemCard({super.key, required this.coffee});
+  const ItemCard({super.key, required this.coffee, required this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +76,11 @@ class ItemCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(6.0),
             child: InkWell(
               onTap: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  builder: (context) => const SelectOrderScreen(),
-                );
+                // showModalBottomSheet(
+                //   isScrollControlled: true,
+                //   context: context,
+                //   builder: (context) => const SelectOrderScreen(),
+                // );
               },
               child: const Center(
                 child: Text(

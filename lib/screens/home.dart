@@ -1,7 +1,10 @@
 import 'package:brewista/models/coffee.dart';
+import 'package:brewista/screens/select_order.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../components/gradient_button.dart';
 import '../components/item_card.dart';
+import '../models/shop.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,18 +18,41 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int myIndex = 0;
 
-  // List coffeeMenu = [
-  //   Coffee(
-  //       name: 'Black Coffee',
-  //       originalPrice: '2.08',
-  //       discountPrice: '1.79',
-  //       imagePath: 'assets/black-coffee.png'),
-  //   Coffee(
-  //       name: 'Espresso',
-  //       originalPrice: '2.08',
-  //       discountPrice: '1.79',
-  //       imagePath: 'assets/espresso.png')
-  // ];
+  void navigateToFoodDetails(int index) {
+    final shop = context.read<Shop>();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SelectOrderScreen(),
+      ),
+    );
+  }
+
+  final List<Coffee> _coffeeMenu = [
+    Coffee(
+        name: 'Black Coffee',
+        originalPrice: '2.08',
+        discountPrice: '1.79',
+        imagePath: 'assets/black-coffee.png',
+        cupSize: '',
+        cupType: '',
+        sugar: 0,
+        bread: 0,
+        cream: 0,
+        quantity: 0),
+    Coffee(
+        name: 'Espresso',
+        originalPrice: '2.08',
+        discountPrice: '1.79',
+        imagePath: 'assets/espresso.png',
+        cupSize: '',
+        cupType: '',
+        sugar: 0,
+        bread: 0,
+        cream: 0,
+        quantity: 0)
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -208,74 +234,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ItemCard(
-                            coffee: Coffee(
-                                name: 'Black Coffee',
-                                originalPrice: '2.08',
-                                discountPrice: '1.79',
-                                imagePath: 'assets/black-coffee.png',
-                                cupSize: '',
-                                cupType: '',
-                                sugar: 0,
-                                bread: 0,
-                                cream: 0,
-                                quantity: 0),
-                          ),
-                          ItemCard(
-                            coffee: Coffee(
-                                name: 'Espresso',
-                                originalPrice: '2.08',
-                                discountPrice: '1.79',
-                                imagePath: 'assets/espresso.png',
-                                cupSize: '',
-                                cupType: '',
-                                sugar: 0,
-                                bread: 0,
-                                cream: 0,
-                                quantity: 0),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ItemCard(
-                            coffee: Coffee(
-                                name: 'Black Coffee',
-                                originalPrice: '2.08',
-                                discountPrice: '1.79',
-                                imagePath: 'assets/black-coffee.png',
-                                cupSize: '',
-                                cupType: '',
-                                sugar: 0,
-                                bread: 0,
-                                cream: 0,
-                                quantity: 0),
-                          ),
-                          ItemCard(
-                            coffee: Coffee(
-                                name: 'Espresso',
-                                originalPrice: '2.08',
-                                discountPrice: '1.79',
-                                imagePath: 'assets/espresso.png',
-                                cupSize: '',
-                                cupType: '',
-                                sugar: 0,
-                                bread: 0,
-                                cream: 0,
-                                quantity: 0),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ItemCard(
+                          coffee: _coffeeMenu[0],
+                          onPress: () {},
+                        ),
+                        ItemCard(
+                          coffee: _coffeeMenu[1],
+                          onPress: () {},
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ItemCard(
+                          coffee: _coffeeMenu[0],
+                          onPress: () {},
+                        ),
+                        ItemCard(
+                          coffee: _coffeeMenu[1],
+                          onPress: () {},
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
