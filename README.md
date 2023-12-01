@@ -1,3 +1,3 @@
 # brewista
 
-This is a coffee ordering mobile application made with Flutter.
+This is a coffee ordering mobile application made with Flutter. 
