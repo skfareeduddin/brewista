@@ -4,15 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../components/gradient_button.dart';
 import '../components/rounded_button.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   static const String id = 'sign_up';
-  const SignUp({super.key});
+  const SignUpScreen({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

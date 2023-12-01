@@ -11,6 +11,16 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  int _currentCount = 1;
+
+  void increaseCount() {
+    _currentCount++;
+  }
+
+  void decreaseCount() {
+    _currentCount--;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,15 +130,13 @@ class _CartScreenState extends State<CartScreen> {
                               color: Colors.grey,
                               width: 20.0,
                             ),
-                            Container(
-                              child: Text(
-                                '  350ml',
-                                style: TextStyle(
-                                  color: Colors.black.withOpacity(0.5),
-                                  fontSize: 12,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                ),
+                            Text(
+                              '  350ml',
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.5),
+                                fontSize: 12,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
@@ -137,23 +145,67 @@ class _CartScreenState extends State<CartScreen> {
                         Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                // TODO: make the counter and continue from here
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  border: Border.all(
-                                      color: Colors.grey,
-                                      width: 1.0,
-                                      style: BorderStyle.solid),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1.0,
+                                  style: BorderStyle.solid,
                                 ),
-                                // TODO: make the counter and continue from here
-                                child: Row(),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(2.0),
+                                ),
+                              ),
+                              padding: const EdgeInsets.all(8.0),
+                              width: 112,
+                              height: 44,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      _currentCount > 1
+                                          ? setState(() {
+                                              decreaseCount();
+                                              _currentCount;
+                                            })
+                                          : null;
+                                    },
+                                    child: const Icon(Icons.remove),
+                                  ),
+                                  Text(
+                                    '$_currentCount',
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        increaseCount();
+                                        _currentCount;
+                                      });
+                                    },
+                                    child: const Icon(Icons.add),
+                                  ),
+                                ],
                               ),
                             ),
-                            const SizedBox(width: 12.0),
-                            Container(
-                              padding: const EdgeInsets.all(8.0),
+                            const SizedBox(width: 8.0),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFFD56262),
+                                shape: const CircleBorder(),
+                              ),
+                              child: const Icon(
+                                Icons.delete_outline,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         ),
@@ -162,6 +214,7 @@ class _CartScreenState extends State<CartScreen> {
                   ],
                 ),
               ),
+              //TODO: Add items section from here
             ],
           ),
         ),
