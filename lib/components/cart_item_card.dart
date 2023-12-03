@@ -1,25 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
-import '../models/shop.dart';
+import '../models/coffee.dart';
 
 class CartItemCard extends StatefulWidget {
   CartItemCard({
     super.key,
-    required this.index,
-    required this.cupSize,
-    required this.cupType,
-    required this.sugar,
-    required this.cream,
-    required this.bread,
+    required this.coffee,
   });
 
-  final String cupSize;
-  final double cupType;
-  final double sugar;
-  final double cream;
-  final double bread;
-  final int index;
+  final Coffee coffee;
 
   @override
   State<CartItemCard> createState() => _CartItemCardState();
@@ -30,23 +19,21 @@ class _CartItemCardState extends State<CartItemCard> {
 
   @override
   Widget build(BuildContext context) {
-    final shop = context.read<Shop>();
-    final coffeeMenu = shop.coffeeMenu;
-    coffeeMenu[widget.index].quantity = quantity.toDouble();
+    widget.coffee.quantity = quantity.toDouble();
 
     void increaseQuantity() {
       setState(() {
         quantity++;
-        coffeeMenu[widget.index].quantity = quantity.toDouble();
-        print(coffeeMenu[widget.index].quantity);
+        widget.coffee.quantity = quantity.toDouble();
+        print(widget.coffee.quantity);
       });
     }
 
     void decreaseQuantity() {
       setState(() {
         quantity--;
-        coffeeMenu[widget.index].quantity = quantity.toDouble();
-        print(coffeeMenu[widget.index].quantity);
+        widget.coffee.quantity = quantity.toDouble();
+        print(widget.coffee.quantity);
       });
     }
 
@@ -55,7 +42,7 @@ class _CartItemCardState extends State<CartItemCard> {
       children: [
         Container(
           width: 345.0,
-          height: 134.0,
+          height: 150.0,
           padding: const EdgeInsets.only(top: 8, left: 6, right: 5, bottom: 8),
           decoration: const ShapeDecoration(
             color: Colors.white,
@@ -69,7 +56,7 @@ class _CartItemCardState extends State<CartItemCard> {
           ),
           child: Row(
             children: [
-              Image.asset(coffeeMenu[widget.index].imagePath),
+              Image.asset(widget.coffee.imagePath),
               const SizedBox(width: 12.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +73,7 @@ class _CartItemCardState extends State<CartItemCard> {
                           width: 119,
                           height: 22,
                           child: Text(
-                            coffeeMenu[widget.index].name,
+                            widget.coffee.name,
                             style: const TextStyle(
                               color: Color(0xFF2F1B00),
                               fontSize: 18,
@@ -101,7 +88,7 @@ class _CartItemCardState extends State<CartItemCard> {
                           child: SizedBox(
                             height: double.infinity,
                             child: Text(
-                              '\$${coffeeMenu[widget.index].discountPrice}',
+                              '\$${widget.coffee.discountPrice}',
                               textAlign: TextAlign.right,
                               style: const TextStyle(
                                 color: Color(0xFF2F1B00),
@@ -123,16 +110,15 @@ class _CartItemCardState extends State<CartItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
-                        widget.cupType.toInt() > 0
-                            ? 'assets/cup_${widget.cupType.toInt()}.svg'
+                        widget.coffee.cupType.toInt() > 0
+                            ? 'assets/cup_${widget.coffee.cupType.toInt()}.svg'
                             : 'assets/cup_1.svg',
-                        //TODO: Implement conditional statement here
                         color: Colors.grey,
                         width: 20.0,
                       ),
                       Text(
-                        widget.cupSize.isNotEmpty
-                            ? '  ${widget.cupSize}ml'
+                        widget.coffee.cupSize.isNotEmpty
+                            ? '  ${widget.coffee.cupSize}ml'
                             : '  200ml',
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.5),
@@ -230,7 +216,7 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 32.0,
               ),
               Text(
-                '${widget.cream.toInt()} Cream',
+                '${widget.coffee.cream.toInt()} Cream',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -246,7 +232,7 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 32.0,
               ),
               Text(
-                '${widget.sugar.toInt()} Sugar',
+                '${widget.coffee.sugar.toInt()} Sugar',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -262,7 +248,7 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 33.0,
               ),
               Text(
-                '${widget.bread.toInt()} Bread',
+                '${widget.coffee.bread.toInt()} Bread',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -272,6 +258,9 @@ class _CartItemCardState extends State<CartItemCard> {
               ),
             ],
           ),
+        ),
+        SizedBox(
+          height: 10.0,
         ),
       ],
     );

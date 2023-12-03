@@ -14,8 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int myIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     final shop = context.read<Shop>();
@@ -207,12 +205,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ItemCard(
                           coffee: coffeeMenu[0],
                           onPress: () {},
-                          index: 0,
                         ),
                         ItemCard(
                           coffee: coffeeMenu[1],
                           onPress: () {},
-                          index: 1,
                         ),
                       ],
                     ),
@@ -223,12 +219,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ItemCard(
                           coffee: coffeeMenu[0],
                           onPress: () {},
-                          index: 0,
                         ),
                         ItemCard(
                           coffee: coffeeMenu[1],
                           onPress: () {},
-                          index: 1,
                         ),
                       ],
                     ),
@@ -236,56 +230,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(bottom: 20.0, left: 10.0, right: 10.0),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(32.0)),
-          child: BottomNavigationBar(
-            elevation: 50.0,
-            onTap: (index) => {
-              setState(() {
-                myIndex = index;
-              }),
-            },
-            currentIndex: myIndex,
-            items: const [
-              BottomNavigationBarItem(
-                // icon: SvgPicture.asset('assets/home_icon.svg'),
-                icon: Icon(Icons.home_filled),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                // icon: SvgPicture.asset('assets/cart_icon.svg'),
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: 'Cart',
-              ),
-              BottomNavigationBarItem(
-                // icon: SvgPicture.asset('assets/profile_icon.svg'),
-                icon: Icon(
-                  Icons.person_2_outlined,
-                ),
-                label: 'Profile',
-              ),
-            ],
-            selectedIconTheme: const IconThemeData(
-              color: Color(0xFFC97200),
-            ),
-            selectedLabelStyle: const TextStyle(
-              color: Color(0xFFC97200),
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-            ),
-            unselectedLabelStyle: const TextStyle(
-              color: Color(0xFFC97200),
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-            ),
-            selectedItemColor: const Color(0xFFC97200),
           ),
         ),
       ),

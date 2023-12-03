@@ -1,3 +1,4 @@
+import 'package:brewista/components/bottom_navigation_bar.dart';
 import 'package:brewista/screens/cart.dart';
 import 'package:brewista/screens/home.dart';
 import 'package:brewista/screens/profile.dart';
@@ -10,7 +11,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => Shop(),
-      child: const Brewista(),
+      child: Brewista(),
     ),
   );
 }
@@ -21,19 +22,14 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.id,
+      initialRoute: BottomNavigationBarScreen.id,
       routes: {
         SignUpScreen.id: (context) => const SignUpScreen(),
+        BottomNavigationBarScreen.id: (context) =>
+            const BottomNavigationBarScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
-        CartScreen.id: (context) => const CartScreen(
-              index: 0,
-              cupSize: '',
-              cupType: 0,
-              sugar: 0,
-              cream: 0,
-              bread: 0,
-            ),
+        CartScreen.id: (context) => const CartScreen(),
       },
     );
   }

@@ -1,25 +1,19 @@
 import 'package:brewista/models/coffee.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../models/shop.dart';
 import '../screens/select_order.dart';
 
 class ItemCard extends StatelessWidget {
   final Coffee coffee;
   final VoidCallback onPress;
-  final int index;
 
-  const ItemCard(
-      {super.key,
-      required this.coffee,
-      required this.onPress,
-      required this.index});
+  const ItemCard({
+    super.key,
+    required this.coffee,
+    required this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final shop = context.read<Shop>();
-    final coffeeMenu = shop.coffeeMenu;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +85,7 @@ class ItemCard extends StatelessWidget {
                   isScrollControlled: true,
                   context: context,
                   builder: (BuildContext context) => SelectOrderScreen(
-                    index: index,
+                    coffee: coffee,
                   ),
                 );
               },

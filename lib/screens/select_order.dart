@@ -1,11 +1,9 @@
-import 'package:brewista/screens/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../components/gradient_button.dart';
+import '../models/coffee.dart';
 import '../models/shop.dart';
-
-// TODO: Fix the counter functionality
 
 List<Widget> cupSize = const [
   Text('200ml'),
@@ -47,8 +45,9 @@ List<Widget> cream = const [
 
 class SelectOrderScreen extends StatefulWidget {
   final index;
+  final Coffee coffee;
 
-  const SelectOrderScreen({super.key, this.index});
+  const SelectOrderScreen({super.key, this.index, required this.coffee});
 
   @override
   State<SelectOrderScreen> createState() => _SelectOrderScreenState();
@@ -63,8 +62,38 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final shop = context.read<Shop>();
-    final coffeeMenu = shop.coffeeMenu;
+    int quantity = 1;
+
+    void addToCart() {
+      final shop = context.read<Shop>();
+      shop.addToCart(widget.coffee, quantity);
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          backgroundColor: const Color(0xFFF9E9D1),
+          content: Text(
+            '${widget.coffee.name} added to your cart!',
+            style: const TextStyle(
+              color: Color(0xFF664B04),
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+                print(widget.coffee.name);
+              },
+              icon: const Icon(Icons.done),
+            ),
+          ],
+        ),
+      );
+    }
 
     return SingleChildScrollView(
       child: Container(
@@ -95,7 +124,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                         ),
                         color: Color(0xFFE5E5E5),
                       ),
-                      child: Image.asset(coffeeMenu[widget.index].imagePath),
+                      child: Image.asset(widget.coffee.imagePath),
                     ),
                     const SizedBox(width: 16.0),
                     Column(
@@ -103,7 +132,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       children: [
                         const SizedBox(height: 16.0),
                         Text(
-                          coffeeMenu[widget.index].name,
+                          widget.coffee.name,
                           style: const TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 28.0,
@@ -116,8 +145,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                           TextSpan(
                             children: [
                               TextSpan(
-                                text:
-                                    ' \$${coffeeMenu[widget.index].originalPrice}',
+                                text: ' \$${widget.coffee.originalPrice}',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 26.0,
@@ -127,8 +155,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                                 ),
                               ),
                               TextSpan(
-                                text:
-                                    ' \$${coffeeMenu[widget.index].discountPrice}',
+                                text: ' \$${widget.coffee.discountPrice}',
                                 style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
@@ -164,8 +191,8 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       for (int i = 0; i < _selectedCupSize.length; i++) {
                         _selectedCupSize[i] = i == index;
                       }
-                      coffeeMenu[widget.index].cupSize = '${(index + 2) * 100}';
-                      print(coffeeMenu[widget.index].cupSize);
+                      widget.coffee.cupSize = '${(index + 2) * 100}';
+                      print(widget.coffee.cupSize);
                     });
                   },
                   borderRadius: const BorderRadius.all(
@@ -200,8 +227,8 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       for (int i = 0; i < _selectedCupType.length; i++) {
                         _selectedCupType[i] = i == index;
                       }
-                      coffeeMenu[widget.index].cupType = index + 1;
-                      print(coffeeMenu[widget.index].cupType);
+                      widget.coffee.cupType = index + 1;
+                      print(widget.coffee.cupType);
                     });
                   },
                   borderRadius: const BorderRadius.all(
@@ -265,8 +292,8 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                           for (int i = 0; i < _selectedSugar.length; i++) {
                             _selectedSugar[i] = i == index;
                           }
-                          coffeeMenu[widget.index].sugar = index + 1;
-                          print(coffeeMenu[widget.index].sugar);
+                          widget.coffee.sugar = index + 1;
+                          print(widget.coffee.sugar);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -319,8 +346,8 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                           for (int i = 0; i < _selectedBread.length; i++) {
                             _selectedBread[i] = i == index;
                           }
-                          coffeeMenu[widget.index].bread = index + 1;
-                          print(coffeeMenu[widget.index].bread);
+                          widget.coffee.bread = index + 1;
+                          print(widget.coffee.bread);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -373,8 +400,8 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                           for (int i = 0; i < _selectedCream.length; i++) {
                             _selectedCream[i] = i == index;
                           }
-                          coffeeMenu[widget.index].cream = index + 1;
-                          print(coffeeMenu[widget.index].cream);
+                          widget.coffee.cream = index + 1;
+                          print(widget.coffee.cream);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -393,19 +420,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                 const SizedBox(height: 16.0),
                 GradientButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CartScreen(
-                          index: widget.index,
-                          cupSize: coffeeMenu[widget.index].cupSize,
-                          cupType: coffeeMenu[widget.index].cupType,
-                          sugar: coffeeMenu[widget.index].sugar,
-                          cream: coffeeMenu[widget.index].cream,
-                          bread: coffeeMenu[widget.index].bread,
-                        ),
-                      ),
-                    );
+                    addToCart();
                   },
                   startingColor: const Color(0xFF8F5101),
                   endingColor: const Color(0xFFDA9235),
