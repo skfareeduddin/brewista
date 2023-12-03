@@ -393,13 +393,10 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                 const SizedBox(height: 16.0),
                 GradientButton(
                   onPressed: () {
-                    coffeeMenu[widget.index].quantity = 1;
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => CartScreen(
-                          quantity: coffeeMenu[widget.index].quantity,
                           index: widget.index,
                           cupSize: coffeeMenu[widget.index].cupSize,
                           cupType: coffeeMenu[widget.index].cupType,

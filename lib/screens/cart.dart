@@ -11,12 +11,10 @@ class CartScreen extends StatefulWidget {
   final double sugar;
   final double cream;
   final double bread;
-  final double quantity;
   final int index;
 
   const CartScreen({
     super.key,
-    required this.quantity,
     required this.index,
     required this.cupSize,
     required this.cupType,
@@ -73,7 +71,6 @@ class _CartScreenState extends State<CartScreen> {
                 sugar: widget.sugar,
                 cream: widget.cream,
                 bread: widget.bread,
-                quantity: widget.quantity,
                 index: widget.index,
               ),
             ],

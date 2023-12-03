@@ -6,7 +6,6 @@ import '../models/shop.dart';
 class CartItemCard extends StatefulWidget {
   CartItemCard({
     super.key,
-    required this.quantity,
     required this.index,
     required this.cupSize,
     required this.cupType,
@@ -20,7 +19,6 @@ class CartItemCard extends StatefulWidget {
   final double sugar;
   final double cream;
   final double bread;
-  final double quantity;
   final int index;
 
   @override
@@ -28,21 +26,27 @@ class CartItemCard extends StatefulWidget {
 }
 
 class _CartItemCardState extends State<CartItemCard> {
+  int quantity = 1;
+
   @override
   Widget build(BuildContext context) {
     final shop = context.read<Shop>();
     final coffeeMenu = shop.coffeeMenu;
-    coffeeMenu[widget.index].quantity = widget.quantity;
+    coffeeMenu[widget.index].quantity = quantity.toDouble();
 
     void increaseQuantity() {
       setState(() {
-        coffeeMenu[widget.index].quantity++;
+        quantity++;
+        coffeeMenu[widget.index].quantity = quantity.toDouble();
+        print(coffeeMenu[widget.index].quantity);
       });
     }
 
     void decreaseQuantity() {
       setState(() {
-        coffeeMenu[widget.index].quantity--;
+        quantity--;
+        coffeeMenu[widget.index].quantity = quantity.toDouble();
+        print(coffeeMenu[widget.index].quantity);
       });
     }
 
@@ -119,13 +123,17 @@ class _CartItemCardState extends State<CartItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SvgPicture.asset(
+                        widget.cupType.toInt() > 0
+                            ? 'assets/cup_${widget.cupType.toInt()}.svg'
+                            : 'assets/cup_1.svg',
                         //TODO: Implement conditional statement here
-                        'assets/cup_${widget.cupType.toInt()}.svg',
                         color: Colors.grey,
                         width: 20.0,
                       ),
                       Text(
-                        '  ${widget.cupSize}ml',
+                        widget.cupSize.isNotEmpty
+                            ? '  ${widget.cupSize}ml'
+                            : '  200ml',
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.5),
                           fontSize: 12,
@@ -158,14 +166,15 @@ class _CartItemCardState extends State<CartItemCard> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                coffeeMenu[widget.index].quantity > 1
-                                    ? decreaseQuantity()
-                                    : null;
+                                if (quantity > 1) {
+                                  decreaseQuantity();
+                                }
                               },
                               child: const Icon(Icons.remove),
                             ),
                             Text(
-                              '${widget.quantity.toInt()}',
+                              //'${widget.quantity.toInt()}',
+                              '$quantity',
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,

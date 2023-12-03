@@ -27,7 +27,6 @@ class Brewista extends StatelessWidget {
         HomeScreen.id: (context) => const HomeScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
         CartScreen.id: (context) => const CartScreen(
-              quantity: 0,
               index: 0,
               cupSize: '',
               cupType: 0,
