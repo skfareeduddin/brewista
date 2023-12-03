@@ -32,6 +32,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF4F4F4),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

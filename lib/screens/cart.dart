@@ -44,7 +44,7 @@ class _CartScreenState extends State<CartScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '2 items',
+                    '${value.cart.length} items',
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.699999988079071),
                       fontSize: 16,
@@ -56,14 +56,15 @@ class _CartScreenState extends State<CartScreen> {
                 const SizedBox(height: 40.0),
                 Expanded(
                   child: ListView.builder(
-                      itemCount: value.cart.length,
-                      itemBuilder: (context, index) {
-                        final Coffee coffee = value.cart[index];
+                    itemCount: value.cart.length,
+                    itemBuilder: (context, index) {
+                      final Coffee coffee = value.cart[index];
 
-                        return CartItemCard(
-                          coffee: coffee,
-                        );
-                      }),
+                      return CartItemCard(
+                        coffee: coffee,
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

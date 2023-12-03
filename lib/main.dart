@@ -22,6 +22,7 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: BottomNavigationBarScreen.id,
       routes: {
         SignUpScreen.id: (context) => const SignUpScreen(),

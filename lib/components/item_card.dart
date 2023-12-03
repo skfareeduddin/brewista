@@ -4,12 +4,10 @@ import '../screens/select_order.dart';
 
 class ItemCard extends StatelessWidget {
   final Coffee coffee;
-  final VoidCallback onPress;
 
   const ItemCard({
     super.key,
     required this.coffee,
-    required this.onPress,
   });
 
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import '../models/coffee.dart';
+import '../models/shop.dart';
 
 class CartItemCard extends StatefulWidget {
   CartItemCard({
@@ -35,6 +37,11 @@ class _CartItemCardState extends State<CartItemCard> {
         widget.coffee.quantity = quantity.toDouble();
         print(widget.coffee.quantity);
       });
+    }
+
+    void removeFromCart(Coffee coffee, BuildContext context) {
+      final shop = context.read<Shop>();
+      shop.removeFromCart(coffee);
     }
 
     return Column(
@@ -179,7 +186,9 @@ class _CartItemCardState extends State<CartItemCard> {
                       ),
                       const SizedBox(width: 8.0),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          removeFromCart(widget.coffee, context);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFD56262),
                           shape: const CircleBorder(),
@@ -216,7 +225,9 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 32.0,
               ),
               Text(
-                '${widget.coffee.cream.toInt()} Cream',
+                widget.coffee.cream > 0
+                    ? '${widget.coffee.cream.toInt()} Cream'
+                    : '1 Cream',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -232,7 +243,9 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 32.0,
               ),
               Text(
-                '${widget.coffee.sugar.toInt()} Sugar',
+                widget.coffee.sugar > 0
+                    ? '${widget.coffee.sugar.toInt()} Sugar'
+                    : '1 Sugar',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -248,7 +261,9 @@ class _CartItemCardState extends State<CartItemCard> {
                 width: 33.0,
               ),
               Text(
-                '${widget.coffee.bread.toInt()} Bread',
+                widget.coffee.bread > 0
+                    ? '${widget.coffee.bread.toInt()} Bread'
+                    : '1 Bread',
                 style: const TextStyle(
                   color: Color(0xFF664B04),
                   fontSize: 12,
@@ -259,7 +274,7 @@ class _CartItemCardState extends State<CartItemCard> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10.0,
         ),
       ],

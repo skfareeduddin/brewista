@@ -197,34 +197,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ItemCard(
-                          coffee: coffeeMenu[0],
-                          onPress: () {},
-                        ),
-                        ItemCard(
-                          coffee: coffeeMenu[1],
-                          onPress: () {},
-                        ),
-                      ],
+                    ItemCard(
+                      coffee: coffeeMenu[0],
                     ),
-                    const SizedBox(height: 20.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ItemCard(
-                          coffee: coffeeMenu[0],
-                          onPress: () {},
-                        ),
-                        ItemCard(
-                          coffee: coffeeMenu[1],
-                          onPress: () {},
-                        ),
-                      ],
+                    ItemCard(
+                      coffee: coffeeMenu[1],
                     ),
                   ],
                 ),
