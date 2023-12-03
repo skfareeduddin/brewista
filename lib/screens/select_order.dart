@@ -1,16 +1,17 @@
+import 'package:brewista/screens/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../components/gradient_button.dart';
 import '../models/shop.dart';
 
-// TODO: Implement functionality to ToggleButton
+// TODO: Fix the counter functionality
 
 List<Widget> cupSize = const [
   Text('200ml'),
   Text('300ml'),
   Text('400ml'),
-  Text('500ml'),
+  Text('500ml')
 ];
 
 List<Widget> cupType = [
@@ -160,12 +161,11 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                   direction: Axis.horizontal,
                   onPressed: (int index) {
                     setState(() {
-                      // The button that is tapped is set to true, and the others to false.
                       for (int i = 0; i < _selectedCupSize.length; i++) {
                         _selectedCupSize[i] = i == index;
                       }
-                      coffeeMenu[widget.index].quantity = index.toDouble();
-                      print(coffeeMenu[widget.index].quantity);
+                      coffeeMenu[widget.index].cupSize = '${(index + 2) * 100}';
+                      print(coffeeMenu[widget.index].cupSize);
                     });
                   },
                   borderRadius: const BorderRadius.all(
@@ -179,75 +179,6 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                   isSelected: _selectedCupSize,
                   children: cupSize,
                 ),
-                // const Row(
-                //   children: [
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.only(
-                //         topLeft: Radius.circular(15.0),
-                //         bottomLeft: Radius.circular(15.0),
-                //       ),
-                //       child: Text(
-                //         '200ml',
-                //         style: TextStyle(
-                //           color: Color(0xE52F1B00),
-                //           fontSize: 16,
-                //           fontFamily: 'Poppins',
-                //           fontWeight: FontWeight.w400,
-                //         ),
-                //       ),
-                //     ),
-                //     SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.zero,
-                //       child: Text(
-                //         '300ml',
-                //         style: TextStyle(
-                //           color: Color(0xE52F1B00),
-                //           fontSize: 16,
-                //           fontFamily: 'Poppins',
-                //           fontWeight: FontWeight.w400,
-                //         ),
-                //       ),
-                //     ),
-                //     SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.zero,
-                //       child: Text(
-                //         '400ml',
-                //         style: TextStyle(
-                //           color: Color(0xE52F1B00),
-                //           fontSize: 16,
-                //           fontFamily: 'Poppins',
-                //           fontWeight: FontWeight.w400,
-                //         ),
-                //       ),
-                //     ),
-                //     SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.only(
-                //         topRight: Radius.circular(15.0),
-                //         bottomRight: Radius.circular(15.0),
-                //       ),
-                //       child: Text(
-                //         '500ml',
-                //         style: TextStyle(
-                //           color: Color(0xE52F1B00),
-                //           fontSize: 16,
-                //           fontFamily: 'Poppins',
-                //           fontWeight: FontWeight.w400,
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 const SizedBox(height: 24),
                 const Align(
                   alignment: Alignment.centerLeft,
@@ -266,12 +197,11 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                   direction: Axis.horizontal,
                   onPressed: (int index) {
                     setState(() {
-                      // The button that is tapped is set to true, and the others to false.
                       for (int i = 0; i < _selectedCupType.length; i++) {
                         _selectedCupType[i] = i == index;
                       }
-                      coffeeMenu[widget.index].quantity = index.toDouble();
-                      print(coffeeMenu[widget.index].quantity);
+                      coffeeMenu[widget.index].cupType = index + 1;
+                      print(coffeeMenu[widget.index].cupType);
                     });
                   },
                   borderRadius: const BorderRadius.all(
@@ -285,43 +215,6 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                   isSelected: _selectedCupType,
                   children: cupType,
                 ),
-                // Row(
-                //   children: [
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: const BorderRadius.only(
-                //         topLeft: Radius.circular(15.0),
-                //         bottomLeft: Radius.circular(15.0),
-                //       ),
-                //       child: SvgPicture.asset('assets/cup_1.svg'),
-                //     ),
-                //     const SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.zero,
-                //       child: SvgPicture.asset('assets/cup_2.svg'),
-                //     ),
-                //     const SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: BorderRadius.zero,
-                //       child: SvgPicture.asset('assets/cup_3.svg'),
-                //     ),
-                //     const SelectorDivider(height: 56.0),
-                //     OrderSelector(
-                //       width: 81.0,
-                //       height: 56.0,
-                //       borderRadius: const BorderRadius.only(
-                //         topRight: Radius.circular(15.0),
-                //         bottomRight: Radius.circular(15.0),
-                //       ),
-                //       child: SvgPicture.asset('assets/cup_4.svg'),
-                //     ),
-                //   ],
-                // ),
                 const SizedBox(height: 24.0),
                 const Align(
                   alignment: Alignment.centerLeft,
@@ -369,12 +262,11 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       direction: Axis.horizontal,
                       onPressed: (int index) {
                         setState(() {
-                          // The button that is tapped is set to true, and the others to false.
                           for (int i = 0; i < _selectedSugar.length; i++) {
                             _selectedSugar[i] = i == index;
                           }
-                          coffeeMenu[widget.index].quantity = index.toDouble();
-                          print(coffeeMenu[widget.index].quantity);
+                          coffeeMenu[widget.index].sugar = index + 1;
+                          print(coffeeMenu[widget.index].sugar);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -388,90 +280,6 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       isSelected: _selectedSugar,
                       children: sugar,
                     ),
-                    // const Row(
-                    //   children: [
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topLeft: Radius.circular(15.0),
-                    //         bottomLeft: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '1',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '2',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '3',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '4',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topRight: Radius.circular(15.0),
-                    //         bottomRight: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '5',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
                   ],
                 ),
                 const SizedBox(height: 12.0),
@@ -508,12 +316,11 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       direction: Axis.horizontal,
                       onPressed: (int index) {
                         setState(() {
-                          // The button that is tapped is set to true, and the others to false.
                           for (int i = 0; i < _selectedBread.length; i++) {
                             _selectedBread[i] = i == index;
                           }
-                          coffeeMenu[widget.index].quantity = index.toDouble();
-                          print(coffeeMenu[widget.index].quantity);
+                          coffeeMenu[widget.index].bread = index + 1;
+                          print(coffeeMenu[widget.index].bread);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -527,90 +334,6 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       isSelected: _selectedBread,
                       children: bread,
                     ),
-                    // const Row(
-                    //   children: [
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topLeft: Radius.circular(15.0),
-                    //         bottomLeft: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '1',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '2',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '3',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '4',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topRight: Radius.circular(15.0),
-                    //         bottomRight: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '5',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
                   ],
                 ),
                 const SizedBox(height: 12.0),
@@ -647,12 +370,11 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       direction: Axis.horizontal,
                       onPressed: (int index) {
                         setState(() {
-                          // The button that is tapped is set to true, and the others to false.
                           for (int i = 0; i < _selectedCream.length; i++) {
                             _selectedCream[i] = i == index;
                           }
-                          coffeeMenu[widget.index].quantity = index.toDouble();
-                          print(coffeeMenu[widget.index].quantity);
+                          coffeeMenu[widget.index].cream = index + 1;
+                          print(coffeeMenu[widget.index].cream);
                         });
                       },
                       borderRadius: const BorderRadius.all(
@@ -666,95 +388,28 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
                       isSelected: _selectedCream,
                       children: cream,
                     ),
-                    // const Row(
-                    //   children: [
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topLeft: Radius.circular(15.0),
-                    //         bottomLeft: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '1',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '2',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '3',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.zero,
-                    //       child: Text(
-                    //         '4',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SelectorDivider(height: 48.0),
-                    //     OrderSelector(
-                    //       width: 52.0,
-                    //       height: 48.0,
-                    //       borderRadius: BorderRadius.only(
-                    //         topRight: Radius.circular(15.0),
-                    //         bottomRight: Radius.circular(15.0),
-                    //       ),
-                    //       child: Text(
-                    //         '5',
-                    //         style: TextStyle(
-                    //           color: Color(0xE52F1B00),
-                    //           fontSize: 18,
-                    //           fontFamily: 'Poppins',
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
                   ],
                 ),
                 const SizedBox(height: 16.0),
                 GradientButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    coffeeMenu[widget.index].quantity = 1;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CartScreen(
+                          quantity: coffeeMenu[widget.index].quantity,
+                          index: widget.index,
+                          cupSize: coffeeMenu[widget.index].cupSize,
+                          cupType: coffeeMenu[widget.index].cupType,
+                          sugar: coffeeMenu[widget.index].sugar,
+                          cream: coffeeMenu[widget.index].cream,
+                          bread: coffeeMenu[widget.index].bread,
+                        ),
+                      ),
+                    );
+                  },
                   startingColor: const Color(0xFF8F5101),
                   endingColor: const Color(0xFFDA9235),
                   width: 334,
@@ -780,3 +435,41 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
     );
   }
 }
+
+// Row(
+//   children: [
+//     OrderSelector(
+//       width: 81.0,
+//       height: 56.0,
+//       borderRadius: const BorderRadius.only(
+//         topLeft: Radius.circular(15.0),
+//         bottomLeft: Radius.circular(15.0),
+//       ),
+//       child: SvgPicture.asset('assets/cup_1.svg'),
+//     ),
+//     const SelectorDivider(height: 56.0),
+//     OrderSelector(
+//       width: 81.0,
+//       height: 56.0,
+//       borderRadius: BorderRadius.zero,
+//       child: SvgPicture.asset('assets/cup_2.svg'),
+//     ),
+//     const SelectorDivider(height: 56.0),
+//     OrderSelector(
+//       width: 81.0,
+//       height: 56.0,
+//       borderRadius: BorderRadius.zero,
+//       child: SvgPicture.asset('assets/cup_3.svg'),
+//     ),
+//     const SelectorDivider(height: 56.0),
+//     OrderSelector(
+//       width: 81.0,
+//       height: 56.0,
+//       borderRadius: const BorderRadius.only(
+//         topRight: Radius.circular(15.0),
+//         bottomRight: Radius.circular(15.0),
+//       ),
+//       child: SvgPicture.asset('assets/cup_4.svg'),
+//     ),
+//   ],
+// ),

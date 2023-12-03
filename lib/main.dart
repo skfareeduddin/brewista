@@ -21,12 +21,20 @@ class Brewista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: CartScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         SignUpScreen.id: (context) => const SignUpScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
-        CartScreen.id: (context) => const CartScreen(),
+        CartScreen.id: (context) => const CartScreen(
+              quantity: 0,
+              index: 0,
+              cupSize: '',
+              cupType: 0,
+              sugar: 0,
+              cream: 0,
+              bread: 0,
+            ),
       },
     );
   }

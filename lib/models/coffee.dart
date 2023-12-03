@@ -4,7 +4,7 @@ class Coffee {
   late String discountPrice;
   late String imagePath;
   late String cupSize;
-  late String cupType;
+  late double cupType;
   late double sugar;
   late double bread;
   late double cream;
@@ -27,7 +27,7 @@ class Coffee {
   String get _discountPrice => discountPrice;
   String get _imagePath => imagePath;
   String get _cupSize => cupSize;
-  String get _cupType => cupType;
+  double get _cupType => cupType;
   double get _sugar => sugar;
   double get _bread => bread;
   double get _cream => cream;
