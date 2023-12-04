@@ -72,12 +72,6 @@ class _CartScreenState extends State<CartScreen> {
                             );
                           } else {
                             return ListView.builder(
-                              // gridDelegate:
-                              //     const SliverGridDelegateWithFixedCrossAxisCount(
-                              //   crossAxisCount: 2,
-                              //   crossAxisSpacing: 16.0,
-                              //   mainAxisSpacing: 16.0,
-                              // ),
                               scrollDirection: Axis.horizontal,
                               itemCount: value.cart.length,
                               itemBuilder: (context, index) {
