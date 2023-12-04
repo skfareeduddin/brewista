@@ -198,40 +198,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                // LayoutBuilder(
-                //   builder: (context, constraints) {
-                //     if (SizerUtil.deviceType == DeviceType.mobile) {
-                //       return Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           ItemCard(coffee: coffeeMenu[0]),
-                //           ItemCard(coffee: coffeeMenu[1]),
-                //         ],
-                //       );
-                //     } else {
-                //       // Otherwise, show a single column
-                //       return Row(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         children: [
-                //           ItemCard(coffee: coffeeMenu[0]),
-                //           const SizedBox(width: 20),
-                //           ItemCard(coffee: coffeeMenu[1]),
-                //         ],
-                //       );
-                //     }
-                //   },
-                // ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ItemCard(
-                      coffee: coffeeMenu[0],
-                    ),
-                    ItemCard(
-                      coffee: coffeeMenu[1],
-                    ),
-                  ],
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (SizerUtil.deviceType == DeviceType.mobile) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ItemCard(coffee: coffeeMenu[0]),
+                          ItemCard(coffee: coffeeMenu[1]),
+                        ],
+                      );
+                    } else {
+                      // Otherwise, show a single column
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ItemCard(coffee: coffeeMenu[0]),
+                          const SizedBox(width: 20),
+                          ItemCard(coffee: coffeeMenu[1]),
+                        ],
+                      );
+                    }
+                  },
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     ItemCard(
+                //       coffee: coffeeMenu[0],
+                //     ),
+                //     ItemCard(
+                //       coffee: coffeeMenu[1],
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),

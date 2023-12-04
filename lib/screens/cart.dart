@@ -1,11 +1,10 @@
 import 'package:brewista/components/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import '../components/cart_item_card.dart';
 import '../models/coffee.dart';
 import '../models/shop.dart';
-
-//TODO: Make the bottom price part of the cart screen
 
 class CartScreen extends StatefulWidget {
   static const id = 'cart';
@@ -59,16 +58,37 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       const SizedBox(height: 40.0),
                       Expanded(
-                        child: ListView.builder(
-                          itemCount: value.cart.length,
-                          itemBuilder: (context, index) {
-                            final Coffee coffee = value.cart[index];
+                        child: LayoutBuilder(builder: (context, constraints) {
+                          if (SizerUtil.deviceType == DeviceType.mobile) {
+                            return ListView.builder(
+                              itemCount: value.cart.length,
+                              itemBuilder: (context, index) {
+                                final Coffee coffee = value.cart[index];
 
-                            return CartItemCard(
-                              coffee: coffee,
+                                return CartItemCard(
+                                  coffee: coffee,
+                                );
+                              },
                             );
-                          },
-                        ),
+                          } else {
+                            return ListView.builder(
+                              // gridDelegate:
+                              //     const SliverGridDelegateWithFixedCrossAxisCount(
+                              //   crossAxisCount: 2,
+                              //   crossAxisSpacing: 16.0,
+                              //   mainAxisSpacing: 16.0,
+                              // ),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: value.cart.length,
+                              itemBuilder: (context, index) {
+                                final Coffee coffee = value.cart[index];
+                                return CartItemCard(
+                                  coffee: coffee,
+                                );
+                              },
+                            );
+                          }
+                        }),
                       ),
                     ],
                   ),
