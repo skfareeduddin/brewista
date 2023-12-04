@@ -6,8 +6,8 @@ class Shop extends ChangeNotifier {
   final List<Coffee> _coffeeMenu = [
     Coffee(
         name: 'Black Coffee',
-        originalPrice: '2.08',
-        discountPrice: '1.79',
+        originalPrice: 2.08,
+        discountPrice: 1.79,
         imagePath: 'assets/black-coffee.png',
         cupSize: '',
         cupType: 0,
@@ -17,8 +17,8 @@ class Shop extends ChangeNotifier {
         quantity: 0),
     Coffee(
         name: 'Espresso',
-        originalPrice: '2.08',
-        discountPrice: '1.79',
+        originalPrice: 2.08,
+        discountPrice: 1.79,
         imagePath: 'assets/espresso.png',
         cupSize: '',
         cupType: 0,

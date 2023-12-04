@@ -1,7 +1,7 @@
 class Coffee {
   late String name;
-  late String originalPrice;
-  late String discountPrice;
+  late double originalPrice;
+  late double discountPrice;
   late String imagePath;
   late String cupSize;
   late double cupType;
@@ -23,8 +23,8 @@ class Coffee {
       required this.quantity});
 
   String get _name => name;
-  String get _originalPrice => originalPrice;
-  String get _discountPrice => discountPrice;
+  double get _originalPrice => originalPrice;
+  double get _discountPrice => discountPrice;
   String get _imagePath => imagePath;
   String get _cupSize => cupSize;
   double get _cupType => cupType;

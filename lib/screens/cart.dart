@@ -1,3 +1,4 @@
+import 'package:brewista/components/gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/cart_item_card.dart';
@@ -24,50 +25,132 @@ class _CartScreenState extends State<CartScreen> {
       builder: (context, value, child) => Scaffold(
         backgroundColor: const Color(0xFFF4F4F4),
         body: SafeArea(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Cart',
-                    style: TextStyle(
-                      color: Color(0xFF2F1B00),
-                      fontSize: 26,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    '${value.cart.length} items',
-                    style: TextStyle(
-                      color: Colors.black.withOpacity(0.699999988079071),
-                      fontSize: 16,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40.0),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: value.cart.length,
-                    itemBuilder: (context, index) {
-                      final Coffee coffee = value.cart[index];
+          child: Column(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 24.0, top: 8.0, right: 24.0),
+                  child: Column(
+                    children: [
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Cart',
+                          style: TextStyle(
+                            color: Color(0xFF2F1B00),
+                            fontSize: 26,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '${value.cart.length} items',
+                          style: TextStyle(
+                            color: Colors.black.withOpacity(0.699999988079071),
+                            fontSize: 16,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 40.0),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: value.cart.length,
+                          itemBuilder: (context, index) {
+                            final Coffee coffee = value.cart[index];
 
-                      return CartItemCard(
-                        coffee: coffee,
-                      );
-                    },
+                            return CartItemCard(
+                              coffee: coffee,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container(
+                  padding: const EdgeInsets.all(24.0),
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                    ),
+                  ),
+                  child: Align(
+                    alignment: FractionalOffset.topCenter,
+                    child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      width: 400,
+                      height: 78,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF4F4F4),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(16.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Total',
+                                style: TextStyle(
+                                  color: Colors.black
+                                      .withOpacity(0.6000000238418579),
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 8.0,
+                              ),
+                              Text(
+                                '\$${value.cart.length * value.coffeeMenu[1].discountPrice}',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 24,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                          GradientButton(
+                              onPressed: () {},
+                              startingColor: const Color(0xFF965706),
+                              endingColor: const Color(0xFFCB852B),
+                              width: 135,
+                              height: 46,
+                              borderRadius: BorderRadius.circular(50.0),
+                              child: const Text(
+                                'Make Payment',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

@@ -48,7 +48,8 @@ class _CartItemCardState extends State<CartItemCard> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
-          width: 345.0,
+          width: double.infinity,
+          //width: 345.0,
           height: 150.0,
           padding: const EdgeInsets.only(top: 8, left: 6, right: 5, bottom: 8),
           decoration: const ShapeDecoration(

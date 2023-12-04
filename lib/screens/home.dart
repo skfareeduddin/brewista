@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../components/gradient_button.dart';
 import '../components/item_card.dart';
 import '../models/shop.dart';
+import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -197,6 +198,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
+                // LayoutBuilder(
+                //   builder: (context, constraints) {
+                //     if (SizerUtil.deviceType == DeviceType.mobile) {
+                //       return Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           ItemCard(coffee: coffeeMenu[0]),
+                //           ItemCard(coffee: coffeeMenu[1]),
+                //         ],
+                //       );
+                //     } else {
+                //       // Otherwise, show a single column
+                //       return Row(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           ItemCard(coffee: coffeeMenu[0]),
+                //           const SizedBox(width: 20),
+                //           ItemCard(coffee: coffeeMenu[1]),
+                //         ],
+                //       );
+                //     }
+                //   },
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
