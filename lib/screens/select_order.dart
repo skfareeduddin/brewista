@@ -67,32 +67,7 @@ class _SelectOrderScreenState extends State<SelectOrderScreen> {
     void addToCart() {
       final shop = context.read<Shop>();
       shop.addToCart(widget.coffee, quantity);
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => AlertDialog(
-          backgroundColor: const Color(0xFFF9E9D1),
-          content: Text(
-            '${widget.coffee.name} added to your cart!',
-            style: const TextStyle(
-              color: Color(0xFF664B04),
-              fontSize: 20,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-                print(widget.coffee.name);
-              },
-              icon: const Icon(Icons.done),
-            ),
-          ],
-        ),
-      );
+      Navigator.pop(context);
     }
 
     return SingleChildScrollView(
