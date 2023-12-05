@@ -1,6 +1,5 @@
 import 'package:brewista/components/bottom_navigation_bar.dart';
 import 'package:brewista/screens/cart.dart';
-import 'package:brewista/screens/coffee_info.dart';
 import 'package:brewista/screens/home.dart';
 import 'package:brewista/screens/profile.dart';
 import 'package:brewista/screens/sign_up.dart';
@@ -34,7 +33,6 @@ class Brewista extends StatelessWidget {
           HomeScreen.id: (context) => const HomeScreen(),
           ProfileScreen.id: (context) => const ProfileScreen(),
           CartScreen.id: (context) => const CartScreen(),
-          CoffeeInfoScreen.id: (context) => const CoffeeInfoScreen(),
         },
       ),
     );

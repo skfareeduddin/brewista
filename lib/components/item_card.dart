@@ -46,10 +46,11 @@ class ItemCard extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CoffeeInfoScreen(),
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (BuildContext context) => CoffeeInfoScreen(
+                    coffee: coffee,
                   ),
                 );
               },
