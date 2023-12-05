@@ -28,18 +28,32 @@ class ItemCard extends StatelessWidget {
           child: Image.asset(coffee.imagePath),
         ),
         const SizedBox(height: 8.0),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            coffee.name,
-            style: const TextStyle(
-              color: Color(0xFF2F1B00),
-              fontSize: 18,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w600,
-              height: 0,
+        Row(
+          children: [
+            Text(
+              coffee.name,
+              style: const TextStyle(
+                color: Color(0xFF2F1B00),
+                fontSize: 18,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                height: 0,
+              ),
             ),
-          ),
+            const SizedBox(
+              width: 20.0,
+            ),
+            GestureDetector(
+              onTap: () {
+                // TODO: make an info screen and add onTap functionality
+              },
+              child: const Icon(
+                Icons.info_outline,
+                color: Colors.grey,
+                size: 20,
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 8.0),
         Text.rich(
