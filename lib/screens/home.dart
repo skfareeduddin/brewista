@@ -43,69 +43,74 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                SearchAnchor(builder:
-                    (BuildContext context, SearchController controller) {
-                  return SearchBar(
-                    elevation: MaterialStateProperty.all(0.0),
-                    shape: MaterialStateProperty.all(
-                      const ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(40.0),
+                SearchAnchor(
+                  builder: (BuildContext context, SearchController controller) {
+                    return SearchBar(
+                      elevation: MaterialStateProperty.all(0.0),
+                      shape: MaterialStateProperty.all(
+                        const ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40.0),
+                          ),
                         ),
                       ),
-                    ),
-                    hintText: 'Search',
-                    hintStyle: MaterialStateProperty.all(
-                      TextStyle(
-                        color: Colors.black.withOpacity(0.3700000047683716),
-                        fontSize: 18,
-                        fontStyle: FontStyle.italic,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    leading: Icon(
-                      Icons.search,
-                      color: Colors.black.withOpacity(0.3700000047683716),
-                      size: 25.0,
-                    ),
-                    trailing: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.menu,
+                      hintText: 'Search',
+                      hintStyle: MaterialStateProperty.all(
+                        TextStyle(
                           color: Colors.black.withOpacity(0.3700000047683716),
-                          size: 30.0,
+                          fontSize: 18,
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                    ],
-                    controller: controller,
-                    padding: const MaterialStatePropertyAll<EdgeInsets>(
-                        EdgeInsets.symmetric(horizontal: 16.0)),
-                    onTap: () {
-                      controller.openView();
-                    },
-                    onChanged: (_) {
-                      controller.openView();
-                    },
-                  );
-                }, suggestionsBuilder:
-                    (BuildContext context, SearchController controller) {
-                  return List<ListTile>.generate(5, (int index) {
-                    final String item = 'item $index';
-                    return ListTile(
-                      title: Text(item),
+                      leading: Icon(
+                        Icons.search,
+                        color: Colors.black.withOpacity(0.3700000047683716),
+                        size: 25.0,
+                      ),
+                      trailing: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.menu,
+                            color: Colors.black.withOpacity(0.3700000047683716),
+                            size: 30.0,
+                          ),
+                        ),
+                      ],
+                      controller: controller,
                       onTap: () {
-                        setState(() {
-                          controller.closeView(item);
-                        });
+                        controller.openView();
+                      },
+                      onChanged: (_) {
+                        controller.openView();
                       },
                     );
-                  });
-                }),
+                  },
+                  suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                    return List<ListTile>.generate(
+                      5,
+                      (int index) {
+                        final String item = 'item $index';
+                        return ListTile(
+                          title: Text(item),
+                          onTap: () {
+                            setState(
+                              () {
+                                controller.closeView(item);
+                              },
+                            );
+                          },
+                        );
+                      },
+                    );
+                  },
+                ),
                 const SizedBox(height: 40.0),
                 Container(
-                  width: 343.0,
+                  width: double.infinity,
                   height: 187,
                   padding: const EdgeInsets.all(16),
                   decoration: const BoxDecoration(
