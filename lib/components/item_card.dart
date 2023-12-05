@@ -1,4 +1,5 @@
 import 'package:brewista/models/coffee.dart';
+import 'package:brewista/screens/coffee_info.dart';
 import 'package:flutter/material.dart';
 import '../screens/select_order.dart';
 
@@ -45,7 +46,12 @@ class ItemCard extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                // TODO: make an info screen and add onTap functionality
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CoffeeInfoScreen(),
+                  ),
+                );
               },
               child: const Icon(
                 Icons.info_outline,
