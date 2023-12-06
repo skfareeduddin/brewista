@@ -20,6 +20,21 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+
+    return currentWidth < 500
+        ? const CartMobileView()
+        : const CartDesktopView();
+  }
+}
+
+class CartMobileView extends StatelessWidget {
+  const CartMobileView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Consumer<Shop>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: const Color(0xFFF4F4F4),
@@ -32,13 +47,13 @@ class _CartScreenState extends State<CartScreen> {
                       const EdgeInsets.only(left: 24.0, top: 8.0, right: 24.0),
                   child: Column(
                     children: [
-                      const Align(
+                      Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Cart',
                           style: TextStyle(
-                            color: Color(0xFF2F1B00),
-                            fontSize: 26,
+                            color: const Color(0xFF2F1B00),
+                            fontSize: 22.sp,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                           ),
@@ -50,7 +65,7 @@ class _CartScreenState extends State<CartScreen> {
                           '${value.cart.length} items',
                           style: TextStyle(
                             color: Colors.black.withOpacity(0.699999988079071),
-                            fontSize: 16,
+                            fontSize: 12.sp,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                           ),
@@ -58,31 +73,16 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       const SizedBox(height: 40.0),
                       Expanded(
-                        child: LayoutBuilder(builder: (context, constraints) {
-                          if (SizerUtil.deviceType == DeviceType.mobile) {
-                            return ListView.builder(
-                              itemCount: value.cart.length,
-                              itemBuilder: (context, index) {
-                                final Coffee coffee = value.cart[index];
+                        child: ListView.builder(
+                          itemCount: value.cart.length,
+                          itemBuilder: (context, index) {
+                            final Coffee coffee = value.cart[index];
 
-                                return CartItemCard(
-                                  coffee: coffee,
-                                );
-                              },
+                            return CartItemCard(
+                              coffee: coffee,
                             );
-                          } else {
-                            return ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: value.cart.length,
-                              itemBuilder: (context, index) {
-                                final Coffee coffee = value.cart[index];
-                                return CartItemCard(
-                                  coffee: coffee,
-                                );
-                              },
-                            );
-                          }
-                        }),
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -105,8 +105,8 @@ class _CartScreenState extends State<CartScreen> {
                     alignment: FractionalOffset.topCenter,
                     child: Container(
                       padding: const EdgeInsets.all(10.0),
-                      width: 400,
-                      height: 78,
+                      width: 100.w,
+                      height: 10.h,
                       decoration: const BoxDecoration(
                         color: Color(0xFFF4F4F4),
                         borderRadius: BorderRadius.all(
@@ -117,13 +117,14 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 'Total',
                                 style: TextStyle(
                                   color: Colors.black
                                       .withOpacity(0.6000000238418579),
-                                  fontSize: 16,
+                                  fontSize: 12.sp,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -133,9 +134,9 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                               Text(
                                 '\$${value.cart.length * value.coffeeMenu[1].discountPrice}',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 24,
+                                  fontSize: 18.sp,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -146,14 +147,160 @@ class _CartScreenState extends State<CartScreen> {
                               onPressed: () {},
                               startingColor: const Color(0xFF965706),
                               endingColor: const Color(0xFFCB852B),
-                              width: 135,
-                              height: 46,
+                              width: 40.0.w,
+                              height: 6.0.h,
                               borderRadius: BorderRadius.circular(50.0),
-                              child: const Text(
+                              child: Text(
                                 'Make Payment',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12,
+                                  fontSize: 10.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CartDesktopView extends StatelessWidget {
+  const CartDesktopView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<Shop>(
+      builder: (context, value, child) => Scaffold(
+        backgroundColor: const Color(0xFFF4F4F4),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 24.0, top: 8.0, right: 24.0),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Cart',
+                          style: TextStyle(
+                            color: const Color(0xFF2F1B00),
+                            fontSize: 6.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '${value.cart.length} items',
+                          style: TextStyle(
+                            color: Colors.black.withOpacity(0.699999988079071),
+                            fontSize: 5.sp,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 40.0),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: value.cart.length,
+                          itemBuilder: (context, index) {
+                            final Coffee coffee = value.cart[index];
+
+                            return CartItemCard(
+                              coffee: coffee,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container(
+                  padding: const EdgeInsets.all(24.0),
+                  width: MediaQuery.of(context).size.width,
+                  height: 30.h,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                    ),
+                  ),
+                  child: Align(
+                    alignment: FractionalOffset.topCenter,
+                    child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      width: 100.w,
+                      height: 15.h,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF4F4F4),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(16.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Total',
+                                style: TextStyle(
+                                  color: Colors.black
+                                      .withOpacity(0.6000000238418579),
+                                  fontSize: 6.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 8.0,
+                              ),
+                              Text(
+                                '\$${value.cart.length * value.coffeeMenu[1].discountPrice}',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 8.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                          GradientButton(
+                              onPressed: () {},
+                              startingColor: const Color(0xFF965706),
+                              endingColor: const Color(0xFFCB852B),
+                              width: 20.0.w,
+                              height: 8.0.h,
+                              borderRadius: BorderRadius.circular(50.0),
+                              child: Text(
+                                'Make Payment',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 6.sp,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w700,
                                 ),
