@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../models/coffee.dart';
-import '../screens/coffee_info.dart';
-import '../screens/select_order.dart';
+import '../../models/coffee.dart';
+import '../../screens/coffee_info.dart';
+import '../../screens/select_order.dart';
 
-class ItemCardMobileView extends StatelessWidget {
-  const ItemCardMobileView({
+class ItemCardDesktopView extends StatelessWidget {
+  const ItemCardDesktopView({
     super.key,
     required this.coffee,
   });
@@ -20,17 +20,21 @@ class ItemCardMobileView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 39.0.w,
-          height: 13.0.h,
+          width: 40.0.w,
+          height: 30.0.h,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(6.0),
             ),
             color: Color(0xFFE5E5E5),
           ),
-          child: Image.asset(coffee.imagePath),
+          child: Image.asset(
+            coffee.imagePath,
+            width: double.infinity,
+            height: double.infinity,
+          ),
         ),
-        const SizedBox(height: 8.0),
+        SizedBox(height: 2.0.h),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -38,7 +42,7 @@ class ItemCardMobileView extends StatelessWidget {
               coffee.name,
               style: TextStyle(
                 color: const Color(0xFF2F1B00),
-                fontSize: 16.sp,
+                fontSize: 8.sp,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
                 height: 0,
@@ -60,7 +64,7 @@ class ItemCardMobileView extends StatelessWidget {
               child: Icon(
                 Icons.info_outline,
                 color: Colors.grey,
-                size: 5.w,
+                size: 2.w,
               ),
             ),
           ],
@@ -70,7 +74,7 @@ class ItemCardMobileView extends StatelessWidget {
           TextSpan(
             children: [
               TextSpan(
-                text: '\$${coffee.originalPrice}',
+                text: '\$${coffee.discountPrice}',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18.0,
@@ -92,7 +96,7 @@ class ItemCardMobileView extends StatelessWidget {
         ),
         SizedBox(height: 2.5.h),
         Container(
-          width: 39.0.w,
+          width: 40.0.w,
           height: 6.0.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6.0),

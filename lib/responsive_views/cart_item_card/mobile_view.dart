@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../components/cart_item_card.dart';
-import '../models/coffee.dart';
-import '../models/shop.dart';
+import '../../components/cart_item_card.dart';
+import '../../models/coffee.dart';
+import '../../models/shop.dart';
 
 class CartItemCardMobileView extends StatefulWidget {
   const CartItemCardMobileView({

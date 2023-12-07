@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../responsive_views/cart_desktop_view.dart';
-import '../responsive_views/cart_mobile_view.dart';
+import '../responsive_views/cart/desktop_view.dart';
+import '../responsive_views/cart/mobile_view.dart';
 
 class CartScreen extends StatefulWidget {
   static const id = 'cart';

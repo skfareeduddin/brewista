@@ -1,8 +1,8 @@
 import 'package:brewista/models/coffee.dart';
 import 'package:flutter/material.dart';
 
-import '../responsive_views/item_card_desktop_view.dart';
-import '../responsive_views/item_card_mobile_view.dart';
+import '../responsive_views/item_card/desktop_view.dart';
+import '../responsive_views/item_card/mobile_view.dart';
 
 class ItemCard extends StatelessWidget {
   final Coffee coffee;

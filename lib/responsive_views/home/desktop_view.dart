@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../components/gradient_button.dart';
-import '../components/item_card.dart';
-import '../models/coffee.dart';
+import '../../components/gradient_button.dart';
+import '../../components/item_card.dart';
+import '../../models/coffee.dart';
 
 class DesktopView extends StatefulWidget {
   const DesktopView({

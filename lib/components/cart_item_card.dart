@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../models/coffee.dart';
-import '../responsive_views/cart_item_card_desktop_view.dart';
-import '../responsive_views/cart_item_card_mobile_view.dart';
+import '../responsive_views/cart_item_card/desktop_view.dart';
+import '../responsive_views/cart_item_card/mobile_view.dart';
 
 class CartItemCard extends StatefulWidget {
   CartItemCard({

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import '../components/cart_item_card.dart';
-import '../components/gradient_button.dart';
-import '../models/coffee.dart';
-import '../models/shop.dart';
+import '../../components/cart_item_card.dart';
+import '../../components/gradient_button.dart';
+import '../../models/coffee.dart';
+import '../../models/shop.dart';
 
 class CartMobileView extends StatelessWidget {
   const CartMobileView({
