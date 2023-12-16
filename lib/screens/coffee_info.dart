@@ -112,13 +112,14 @@ class CoffeeInfoScreen extends StatelessWidget {
                   const SizedBox(height: 40.0),
                   GradientButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              SelectOrderScreen(coffee: coffee),
-                        ),
-                      );
+                      Navigator.pop(context);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) =>
+                      //         SelectOrderScreen(coffee: coffee),
+                      //   ),
+                      // );
                     },
                     startingColor: const Color(0xFF8F5101),
                     endingColor: const Color(0xFFDA9235),
