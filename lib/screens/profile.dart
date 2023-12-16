@@ -1,3 +1,4 @@
+import 'package:brewista/screens/my_orders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -102,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset('assets/edit_icon.svg'),
                         const SizedBox(width: 8.0),
                         const Text(
-                          'Edit profile',
+                          'Edit Profile',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 16,
@@ -122,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset('assets/my_orders_icon.svg'),
                         const SizedBox(width: 8.0),
                         const Text(
-                          'My orders',
+                          'My Orders',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 16,
@@ -132,7 +133,14 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyOrderScreen(),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(height: 24.0),
                   RoundedButton(
@@ -142,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset('assets/refer_a_friend_icon.svg'),
                         const SizedBox(width: 8.0),
                         const Text(
-                          'Refer a friend',
+                          'Refer A Friend',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 16,
@@ -162,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset('assets/log_out_icon.svg'),
                         const SizedBox(width: 8.0),
                         const Text(
-                          'Log out',
+                          'Log Out',
                           style: TextStyle(
                             color: Color(0xFF2F1B00),
                             fontSize: 16,

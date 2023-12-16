@@ -1,6 +1,7 @@
 import 'package:brewista/components/bottom_navigation_bar.dart';
 import 'package:brewista/screens/cart.dart';
 import 'package:brewista/screens/home.dart';
+import 'package:brewista/screens/my_orders.dart';
 import 'package:brewista/screens/profile.dart';
 import 'package:brewista/screens/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class Brewista extends StatelessWidget {
           HomeScreen.id: (context) => const HomeScreen(),
           ProfileScreen.id: (context) => const ProfileScreen(),
           CartScreen.id: (context) => const CartScreen(),
+          MyOrderScreen.id: (context) => const MyOrderScreen(),
         },
       ),
     );
