@@ -7,18 +7,23 @@ class MyOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Row(
                 children: [
-                  Icon(
-                    Icons.arrow_back,
-                    color: Color(0xFF2F1B00),
-                    size: 32.0,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Color(0xFF2F1B00),
+                      size: 32.0,
+                    ),
                   ),
                 ],
               )
