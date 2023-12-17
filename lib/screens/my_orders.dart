@@ -47,7 +47,6 @@ class MyOrderScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Order Screen'),
             ],
           ),
         ),
