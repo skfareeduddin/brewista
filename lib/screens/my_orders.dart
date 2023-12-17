@@ -46,7 +46,8 @@ class MyOrderScreen extends StatelessWidget {
                     size: 32.0,
                   ),
                 ],
-              )
+              ),
+              Text('Order Screen'),
             ],
           ),
         ),
